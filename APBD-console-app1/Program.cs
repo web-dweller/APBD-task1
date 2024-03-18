@@ -8,7 +8,9 @@ Console.WriteLine("Hello, World!");
 
 int[] numbers = { 10, 20, 30, 40, 50 };
 double average = CalculateAverage(numbers);
+int maxValue = FindMaximum(numbers);
 Console.WriteLine("Average: " + average);
+Console.WriteLine("Maximum Value: " + maxValue);
 
 static double CalculateAverage(int[] numbers)
 {
@@ -24,4 +26,23 @@ static double CalculateAverage(int[] numbers)
     }
 
     return (double)sum / numbers.Length;
+}
+
+static int FindMaximum(int[] numbers)
+{
+    if (numbers == null || numbers.Length == 0)
+    {
+        throw new ArgumentException("Array cannot be null or empty.");
+    }
+
+    int max = numbers[0];
+    foreach (int num in numbers)
+    {
+        if (num > max)
+        {
+            max = num;
+        }
+    }
+
+    return max;
 }
